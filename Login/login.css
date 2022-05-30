@@ -1,0 +1,32 @@
+body{
+  background:url('../img/login.png') no-repeat , linear-gradient(to right,#A0BCC2,  #DAE5D0 , #FEFBE7 , #FFCAC2);  
+  background-size: 100% 140% ;   }
+
+ .login-cont{
+   border: 2px #000 double;
+   width: 26%;
+   background-color:rgba(255, 255, 255, 0.4);
+   margin-left: 60%;
+   margin-top: 10%;
+   padding: 20px 50px 50px ;
+   border-top-right-radius: 30px;
+   border-bottom-left-radius: 30px;
+ }
+
+ .form-inputt{border-radius: 10px;
+ border: none;
+ border-bottom: gray 1px solid;
+font-size: 20px;
+padding: 10px;}
+
+.bttn-login{border-radius: 10px;
+width: 60%;
+font-size: x-large;
+font-family: 'Courier New', Courier, monospace;
+background: #C3DBD9;
+border: 1px #8FBDD3 solid ;}
+
+.ll{color: #e55951;
+font-size: xx-large;}
+
+.bttn-login:hover{background: #8FBDD3;}
