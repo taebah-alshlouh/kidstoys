@@ -2,12 +2,28 @@
 session_start();
      include_once '../Configration/connection.php';
     if (isset($_POST['submit'])){
+
      $reg_name="/^([a-zA-Z' ]+)$/";
      $reg_PhoneNum="/^\\(?([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})?[-.\\s]?([0-9]{4})$/";
      $reg_email="/^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i";
-     $firstName_done= $SecName_done= $LastName_done= $DateOfBirt_done= $Number_done= $Email_done= $Pass_done= $ConfirmPassword_done="";
+     $firstName_done= $LastName_done=  $Number_done= $Email_done= $Pass_done= $ConfirmPassword_done="";
 
-     $sql= " SELECT * FROM register ;";
+
+
+     $fname=$_POST['First_Name'];
+    //  $sname=$_POST['Sec_Name'];
+     $lname=$_POST['Last_Name'];
+    //  $dob  =$_POST['DOB'];
+     $phone=$_POST['Phone_Num'];
+     $email=$_POST['Email'];
+    // $pass=password_hash($_POST['Password'],PASSWORD_DEFAULT);
+    $pass=$_POST['Password'];
+    $con_pass=$_POST['Con_Password'];
+     
+    
+    
+    
+    $sql= " SELECT * FROM register ;";
      $result= mysqli_query($conn,$sql);
     $result_check= mysqli_num_rows($result);
     if ($result_check > 0) {
@@ -15,14 +31,7 @@ session_start();
       while ($row=mysqli_fetch_assoc($result)) {
 
      
-     $fname=$_POST['First_Name'];
-     $sname=$_POST['Sec_Name'];
-     $lname=$_POST['Last_Name'];
-     $dob  =$_POST['DOB'];
-     $phone=$_POST['Phone_Num'];
-     $email=$_POST['Email'];
-     $pass=$_POST['Password'];
-     $con_pass=$_POST['Con_Password'];
+     
 
 
             if(preg_match($reg_name,$fname)){
@@ -33,13 +42,13 @@ session_start();
                 $firstName_done=false;
             }
 
-            if(preg_match($reg_name,$sname)){
-                $SecName_check="<small style='color:white'> ✅ Correct Name </small><br>";
-                $SecName_done=true;
-            }else{
-                $SecName_check="<br><small style='color:white'>❌ Incorrect Name</small><br>";
-                $SecName_done=false;
-            }
+            // if(preg_match($reg_name,$sname)){
+            //     $SecName_check="<small style='color:white'> ✅ Correct Name </small><br>";
+            //     $SecName_done=true;
+            // }else{
+            //     $SecName_check="<br><small style='color:white'>❌ Incorrect Name</small><br>";
+            //     $SecName_done=false;
+            // }
 
             if(preg_match($reg_name,$lname)){
                 $LastName_check="<small style='color:white'>✅ Correct Name </small><br>";
@@ -101,9 +110,9 @@ session_start();
             }}}
         
 
-     if($firstName_done && $SecName_done && $LastName_done && $DateOfBirt_done && $Number_done && $Email_done && $ConfirmPassword_done && $Pass_done ){
-        $sql= " INSERT INTO register(First_Name, Sec_Name, Last_Name ,DOB, Phone_Num,  Email , Password, Con_Password)
-        VALUES ('$fname', '$sname','$lname', '$dob' ,  '$phone','$email', '$pass' , '$con_pass');";
+     if($firstName_done &&  $LastName_done && $Number_done && $Email_done && $ConfirmPassword_done && $Pass_done ){
+        $sql= " INSERT INTO register(First_Name,  Last_Name , Phone_Num,  Email , Password, Con_Password)
+        VALUES ('$fname', '$lname',   '$phone','$email', '$pass' , '$con_pass');";
 
         if(mysqli_query($conn, $sql)){
         header("location:../Login/Login.php");

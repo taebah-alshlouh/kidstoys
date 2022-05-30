@@ -5,7 +5,9 @@ if (isset($_GET['submit'])){
      
     $loginEmail=$_GET['loginEmail'];
     $_SESSION['email']=$loginEmail;
-    $loginPassword=$_GET['loginPassword'];
+    $loginPassword=$_GET['loginPassword']; 
+  $loginPassword=$_SESSION['loginPassword'];
+    echo  $loginPassword."<br>";
     $adminEmail_correct=true;
     $adminPass_correct=true;
     $loginEmail_correct =true;

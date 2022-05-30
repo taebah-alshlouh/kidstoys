@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kids Toys</title>
+    <title>Amazon Prime Video</title>
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
@@ -28,11 +28,11 @@
       <body>
       <div class="container-fluied">
         <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <nav class="navbar  navbar-expand-lg navbar-light white scrolling-navbar">
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="">
-        <img src="img/logo_kids.gif" alt="logo" width="60px">
+        <img src="img/logo_kids.gif" alt="logo" width="50px">
       </a>
 
       <!-- Collapse -->
@@ -100,13 +100,13 @@
   </nav>
   <!-- Navbar -->
 
-          <div class="container" >
+          <div class="container-fluied" >
           <div id="header-hero" >
-            <div class="header-bg"><img src="https://i.gifer.com/embedded/download/O4q3.gif" alt="header-image"/>
+            <div class="header-bg" ><img style="height:80%;" src="https://cdn.discordapp.com/attachments/976113421546307604/980823788109316096/0433e77a3ec66497c64024a621e127b2.jpg" alt="header-image"/>
             <div class="header-content">
-              <h1 style="margin-top:10% ; margin-left:15%">Welcome to<span class="logo-style"> KIDS TOy'S</span> store</h1>
-              <p style=" width:30% ; margin-left:35% ; margin-top:-2% ; text-align:justify">Toys shop has announced that Toys store is opening , its separate platform that provides The most distinctive games that the child spends his time enjoying and learning, has amassed more than 35 million customers..</p>
-             <button class="button1" style="margin-left:40% ; background-color:#e55951;"> <span>Shop Now </span>
+              <h1 style="margin-top:10% ; margin-left:45%">Welcome to<span class="logo-style"> KIDS TOy'S</span> store</h1>
+              <p style=" width:30% ; margin-left:55% ; margin-top:-2% ; text-align:justify">Toys shop has announced that Toys store is opening , its separate platform that provides The most distinctive games that the child spends his time enjoying.</p>
+             <button class="button1" style="margin-left:65% ; background-color:#e55951;"> <span>Shop Now </span>
               </button>
             </div>
           </div> </div></div>
@@ -218,8 +218,8 @@
               <div class="c-1-image-holder"> <img src="https://image.smythstoys.com/zoom/145509.jpg" alt="image"> <p style="text-align:center">DOLLS</p> </div>
             </div>
             <div class="c-2">
-              <h2>Latest from CATEGORIES</h2>
-              <hr style="width:70% ; margin-left:30%"/>
+              <h2>CATEGORIES</h2>
+              <hr style="width:60% ; margin-left:50%"/>
               <div class="c-2-image-holder"> <p style="text-align:right">Electronic Toys</p><img class="left" src="https://www.gannett-cdn.com/presto/2019/11/25/USAT/9da93219-bf63-4b9c-af3c-7c2ecdb7ff23-Toys_and_Clothes.png?width=660&height=372&fit=crop&format=pjpg&auto=webp" alt="">
                 <img class="right" src="https://www.toynews-online.biz/wp-content/uploads/electronic-toys.jpg"
                  alt=""><p style="text-align:center">Creative Toys</p></div>

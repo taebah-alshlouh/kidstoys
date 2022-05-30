@@ -28,7 +28,7 @@ echo "<style> .restrict1{display:none;} </style>";
 <body>
 <div class="container-fluied">
         <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="">
@@ -209,8 +209,8 @@ echo "<style> .restrict1{display:none;} </style>";
                 <td colspan="2"><b>Grand Total</b></td>
                 <td><b>$&nbsp;&nbsp;<?php echo $grand_total; ?></b></td>
                 
-                <td>
-                  <a href="../checkout/checkout.php" class="btn btn-info <?= ($grand_total > 1) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
+                 <td> <!-- ($grand_total > 1) ? '' : 'disabled';  -->
+                  <a href="../checkout/checkout.php" class="btn btn-info <?= (isset($_SESSION['email'])) ? '' : 'disabled'; ?>"><i class="far fa-credit-card"></i>&nbsp;&nbsp;Checkout</a>
                 </td>
               </tr>
             </tbody>

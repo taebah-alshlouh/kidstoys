@@ -1,15 +1,15 @@
 <?php
-  session_start();
-  if(!empty($_SESSION['email'])){
-    echo "<style> .restrict{display:none;} </style>";
-    echo "<style> .restrict1{display:inline;} </style>";
-
-  }else{echo "<style> .restrict{display:inline;} </style>";
-  echo "<style> .restrict1{display:none;} </style>";
-  }
 
 include_once '../Configration/connection.php';
+session_start();
+if(!empty($_SESSION['email'])){
+  echo "<style> .restrict{display:none;} </style>";
+  echo "<style> .restrict1{display:inline;} </style>";
 
+}else{echo "<style> .restrict{display:inline;} </style>";
+echo "<style> .restrict1{display:none;} </style>";
+}
+ 
 
 if(isset($_GET['add'])){
   $quantity=$_GET['quantity'];
@@ -17,7 +17,6 @@ if(isset($_GET['add'])){
     $id=$_GET['id_prod'];
     $adding="INSERT INTO `cart`(`product_id`, `quantity`) VALUES ('$id','$quantity');";
     mysqli_query($conn,$adding);
-
  };
 
 ?>
@@ -29,8 +28,10 @@ if(isset($_GET['add'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-    <link rel="stylesheet" href="../bootstrap-4.4.1-dist/css/bootstrap.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&family=Patrick+Hand&family=Poppins:wght@100;200;300;400&family=Smooch&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../nav.css">
     <link rel="stylesheet" href="../index1.css">
     <title>Store</title>
@@ -41,7 +42,7 @@ if(isset($_GET['add'])){
 <body>
 <div class="container-fluied">
         <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+  <nav class="navbar navbar-expand-lg navbar-light white scrolling-navbar">
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="">
@@ -107,7 +108,15 @@ if(isset($_GET['add'])){
     </div>
   </nav>
   <!-- Navbar -->
-<section class="section-content ml" style="margin-top:15%">
+  <ul type="none" style="margin-left:20px;margin-top:9%; border:2px solid #ffcdcd; width:10%; padding:10px;  ">
+<li>Category</li>
+  <li style="padding-top:20px;" ><a href="../product/product.php">Creative Toys</a></li>
+  <!-- <li><a href=""></a>Dolls</li> -->
+  <li style="padding-top:20px;" ><a href="../product/store.php">Educational Toys</a></li>
+  <li style="padding-top:20px;" ><a href="../product/store2.php">Electronic Toys</a></li>
+</ul>
+  <h1 style="margin-left:40%;margin-top:-23% ">Educational Toys</h1>
+<section class="section-content ml" style="margin-top:-18%">
     <div class="container-fluied">
 
         <div class="row" style="justify-content: center!important;">
@@ -137,7 +146,7 @@ if(isset($_GET['add'])){
                         <form action="" method="GET">
                             <figure class="card card-product-grid">
                                 <div class="img-wrap"  style="text-align:center">
-                                    <img class="prod" src="<?php echo $row['img'];?>"><br>
+                                    <img class="prod" src="<?php echo $row['img'];?>">
                                     <!-- ################################################### -->
                                     <label><?php 
                                    $cat= "SELECT categories.category_name FROM categories INNER JOIN products
@@ -153,15 +162,14 @@ if(isset($_GET['add'])){
                                             class="title"><?php echo $row['product_name']; ?></a>
 
                                         <div class="price-wrap mt-2">
-                                            <span class="price">Price: <?php echo $row['price']; ?> $</span><br>
+                                            <span class="price">Price: <?php echo $row['price']; ?> $</span>
                                         </div> 
                                     </div>
                                     <!-- col.// -->
                                     <div class="col" style="text-align:center">
-                                       <br> <p class="card-text">Quantity:   </p>
-
-                                           <input style="text-align:center; width:150px ; margin-left:25%" type="number" min="1" max="25" name="quantity" class="form-control"                                               value="1" style="width: 50px;">
-                                    
+                                        <p class="card-text">Quantity:
+                                            <input style="text-align:center" type="number" min="1" max="25" name="quantity" class="form-control"                                               value="1" style="width: 60px;">
+                                        </p>
                                     </div> <!-- col.// -->
                                     <br>
 
@@ -199,7 +207,7 @@ if(isset($_GET['add'])){
                         // changing the position of the section product
 						echo '  <ul class="pagination" style="justify-content: center!important;">';
 						if ($page > 1) {
-							echo '<li  class="paginate_button page-item previous" id="zero_config_previous"><a href="store.php?page=' . ($page - 1) . '" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link"style="background-color: #bd2130;border-color: #bd2130!important;"  >Previous</a></li>';
+							echo '<li  class="paginate_button page-item previous" id="zero_config_previous"><a href="store.php?page=' . ($page - 1) . '" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>';
 						}
 						for ($i = 1; $i < $total_pages; $i++) {
 							if ($i == $page) {
@@ -207,10 +215,10 @@ if(isset($_GET['add'])){
 							} else {
 								$active = "";
 							}
-							echo '<li class="paginate_button page-item ' . $active . '"><a href="store.php?page=' . $i . '" aria-controls="zero_config"  class="page-link">' . $i . '</a></li>';
+							echo '<li class="paginate_button page-item ' . $active . '"><a href="store2.php?page=' . $i . '" aria-controls="zero_config"  class="page-link">' . $i . '</a></li>';
 						}
 						if ($total_pages > $page) {
-							echo '<li class="paginate_button page-item next" id="zero_config_next"><a href="store.php?page=' . ($page + 1) . '" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>';
+							echo '<li class="paginate_button page-item next" id="zero_config_next"><a href="store2.php?page=' . ($page + 1) . '" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>';
 						}
 						echo '</ul>';
 
@@ -229,7 +237,6 @@ if(isset($_GET['add'])){
     </div> <!-- container .//  -->
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
-
        
 <!-- Start Footer bottom Area -->
 <footer >
@@ -272,6 +279,7 @@ if(isset($_GET['add'])){
     </div>
   </div>
 </footer>
+
 
 
 <script>
